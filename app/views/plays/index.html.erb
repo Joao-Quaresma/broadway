@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>WOW</h1>
-</body>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <% @plays.each do |play| %>
+      <h2><%= link_to play.title, play_path(play) %></h2>
+    <% end %>
+    <%= link_to 'Add Play', new_play_path %>
+  </body>
 </html>
