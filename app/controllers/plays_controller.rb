@@ -2,6 +2,7 @@
 
 # Plays controller
 class PlaysController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :find_play, only: %i[show edit update destroy]
 
   def index
@@ -9,11 +10,11 @@ class PlaysController < ApplicationController
   end
 
   def new
-    @play = Play.current_user.play.build
+    @play = Play.current_user.plays.build
   end
 
   def create
-    @play = Play.current_user.play.build(play_params)
+    @play = Play.current_user.plays.build(play_params)
     if @play.save
       redirect_to root_path
     else
