@@ -2,7 +2,7 @@
 
 # Plays controller
 class PlaysController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, only: %i[new edit]
   before_action :find_play, only: %i[show edit update destroy]
 
   def index

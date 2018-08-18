@@ -5,10 +5,10 @@
   </head>
   <body>
     <%= simple_form_for @play do |f| %>
-      <%= select_tag(:category_id, options_for_select(@categories), prompt: 'Select Category') %>
       <%= f.file_field :play_img %>
+      <%= select_tag(:category_id, options_for_select(@categories), prompt: 'Select Category') %>
       <%= f.input :title %>
-      <%= f.input :description %>
+      <%= f.input :description, input_html: {rows: 10} %>
       <%= f.input :director %>
       <%= f.button :submit %>
     <% end %>
