@@ -29,7 +29,13 @@ class PlaysController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    if @play.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @play.reviews.average(:rating).round(2)
+    end
+  end
 
   def edit
     @categories = Category.all.map { |c| [c.name, c.id] }

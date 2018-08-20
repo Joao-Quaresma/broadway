@@ -2,6 +2,7 @@
 
 # Reivews controller
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new edit]
   before_action :find_play
   before_action :find_review, only: %i[edit update destroy]
   def new
