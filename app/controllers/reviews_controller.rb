@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to play_path(@play)
     else
+      flash[:alert] = 'Check the comment form, something went wrong.'
       render 'new'
     end
   end
